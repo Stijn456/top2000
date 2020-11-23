@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Top2000.Models.Song>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Artiesten Info</h2>
+
+@using (Html.BeginForm("Index", "Songs", FormMethod.Get))
+{
+    @Html.TextBox("Search") <input type="submit" value="Search" hidden="hidden"/>
+}
+
+<table class="table">
+    <tr>
+        <th>Titel</th>
+        <th>Jaar</th>
+        <th>Artiest / Band</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @if (item.Artiest.naam == "Queen")
+        {
+        <td>
+            @Html.DisplayFor(modelItem => item.titel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jaar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Artiest.naam)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.songid }) |
+            @Html.ActionLink("Details", "Details", new { id = item.songid }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.songid })
+        </td>
+        }
+    </tr>
+}
+
+</table>

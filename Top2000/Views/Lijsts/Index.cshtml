@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Top2000.Models.Lijst>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Top 2000</h2>
+
+<link href="~/Top2000.csproj" />
+
+@using (Html.BeginForm("Index", "Lijsts", FormMethod.Get))
+{
+    @Html.TextBox("Search") <input type="submit" value="Search" hidden="hidden" />
+}
+
+<!-- <p>
+    Html.ActionLink("Create New", "Create")
+</p>-->
+
+<table class="table">
+    <tr>
+        <th>Positie</th>
+        <th>Artiest / Band</th>
+        <th>Titel</th>
+        <th>Jaar</th>
+        <th>Artiest / Band Info</th>
+    </tr>
+
+    @foreach (var item in Model.OrderBy(a => a.positie))
+    {
+        string ArtiestNaam = item.Song.Artiest.naam;
+        if (item.top2000jaar == 2019)
+        {
+            {
+
+            <tr>
+                <td class="table-top2000">
+                    @Html.DisplayFor(modelItem => item.positie)
+                </td>
+                <td class="table-top2000">
+                    <a href="https://nl.wikipedia.org/wiki/@ArtiestNaam">@Html.DisplayFor(modelItem => item.Song.Artiest.naam)</a>
+                </td>
+                <td class="table-top2000">
+                    @Html.DisplayFor(modelItem => item.Song.titel)
+                </td>
+                <td class="table-top2000">
+                    @Html.DisplayFor(modelItem => item.Song.jaar)
+                </td>
+                <td>
+                    <a href="http://localhost:65004/Songs/index">Songs</a>
+                </td>
+                <!--<td class="table-top2000">
+                    @Html.ActionLink("Edit", "Edit", new { item.Song.songid}) |
+                    @Html.ActionLink("Details", "Details", new { item.Song.songid }) |
+                    @Html.ActionLink("Delete", "Delete", new { item.Song.songid })
+                </td>-->
+            </tr>
+            }
+        }
+    }
+</table>

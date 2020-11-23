@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Top2000ModelStoreContainer" CdmEntityContainer="Top2000Entities1">
+    <EntitySetMapping Name="Artiest">
+      <EntityTypeMapping TypeName="Top2000Model.Artiest">
+        <MappingFragment StoreEntitySet="Artiest">
+          <ScalarProperty Name="Artiestid" ColumnName="Artiestid" />
+          <ScalarProperty Name="naam" ColumnName="naam" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lijst">
+      <EntityTypeMapping TypeName="Top2000Model.Lijst">
+        <MappingFragment StoreEntitySet="Lijst">
+          <ScalarProperty Name="songid" ColumnName="songid" />
+          <ScalarProperty Name="top2000jaar" ColumnName="top2000jaar" />
+          <ScalarProperty Name="positie" ColumnName="positie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Song">
+      <EntityTypeMapping TypeName="Top2000Model.Song">
+        <MappingFragment StoreEntitySet="Song">
+          <ScalarProperty Name="songid" ColumnName="songid" />
+          <ScalarProperty Name="artiestid" ColumnName="artiestid" />
+          <ScalarProperty Name="titel" ColumnName="titel" />
+          <ScalarProperty Name="jaar" ColumnName="jaar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Top2000Jaar">
+      <EntityTypeMapping TypeName="Top2000Model.Top2000Jaar">
+        <MappingFragment StoreEntitySet="Top2000Jaar">
+          <ScalarProperty Name="Jaar" ColumnName="Jaar" />
+          <ScalarProperty Name="Titel" ColumnName="Titel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
